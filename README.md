@@ -126,3 +126,83 @@ View users
 Edit user
 
 Delete user
+
+#  Setup Guide
+
+## Quick Start
+
+### Backend
+```bash
+cd backend
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+uvicorn main:app --reload
+```
+
+### Frontend
+```bash
+cd frontend
+npm install
+npm start
+```
+
+## Detailed Setup
+
+### 1. MySQL Configuration
+
+Create database:
+```sql
+CREATE DATABASE userdb;
+```
+
+### 2. Environment Variables
+
+Create `backend/.env`:
+```
+DB_USER=root
+DB_PASSWORD=your_password
+DB_HOST=localhost
+DB_NAME=userdb
+```
+
+### 3. Database Connection
+
+Update `backend/database.py` if not using .env:
+```python
+DATABASE_URL = "mysql+pymysql://root:YOUR_PASSWORD@localhost/userdb"
+```
+
+### 4. Verify Installation
+
+Backend health check:
+```
+http://127.0.0.1:8000
+```
+
+API documentation:
+```
+http://127.0.0.1:8000/docs
+```
+
+Frontend:
+```
+http://localhost:3000
+```
+
+## Troubleshooting
+
+### Backend won't start
+- Check MySQL is running
+- Verify database credentials
+- Ensure virtual environment is activated
+
+### Frontend can't connect
+- Confirm backend is running on port 8000
+- Check CORS settings in main.py
+- Verify API_URL in UserManagement.js
+
+### Database errors
+- Create database: `CREATE DATABASE userdb;`
+- Check MySQL service is running
+- Verify connection string format
