@@ -127,7 +127,7 @@ Edit user
 
 Delete user
 
-#  Setup Guide
+Setup Guide
 
 ## Quick Start
 
@@ -206,3 +206,4 @@ http://localhost:3000
 - Create database: `CREATE DATABASE userdb;`
 - Check MySQL service is running
 - Verify connection string format
+
